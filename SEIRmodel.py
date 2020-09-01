@@ -180,7 +180,7 @@ class SEIRmodel():
             ax.set_ylim(0, (max(topstack) if not ylim else ylim))
         else:
             ax.set_ylim(0, ylim)
-        ax.set_xticklabels(ax.get_xticks(),fontsize = 25)
+        ax.set_xticklabels(['{:.0f}'.format(x) for x in ax.get_xticks()],fontsize = 25)
         ax.set_yticklabels(ax.get_yticks(),fontsize = 25)
         if(plot_percentages):
             ax.set_yticklabels(['{:,.0%}'.format(y) if y != 0 else "" for y in ax.get_yticks()])
