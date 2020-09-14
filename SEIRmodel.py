@@ -19,7 +19,7 @@ class SEIRmodel():
             sigma   Rate of infection (upon exposure)
             gamma   Rate of recovery (upon infection)
 
-
+            initN   The number of total subject
             initE   Init number of exposed individuals
             initI   Init number of infectious individuals
             initR   Init number of recovered individuals
