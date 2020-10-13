@@ -535,15 +535,15 @@ class SEIRmodel():
 
     def system_dfes(t, variables, beta, sigma, gamma):
 
-        S, E, I, R = variables    # varibles is a list with compartment counts as elements
+        S, E , I, R = variables    # varibles is a list with compartment counts as elements
 
         N   = S + E + I + R
-        dS  = -(beta*S*I)/N
+        dS  = - (beta*S*I)/N
         dE  = (beta*S*I)/N - (sigma*E)
         dI  = (sigma*E) - (gamma*I)
         dR  = (gamma*I)
 
-        return [dS, dE, dI, dR]
+        return [dS, dE , dI, dR]
 
 
     def run_epoch(self, runtime, dt=0.1):
@@ -560,7 +560,7 @@ class SEIRmodel():
         # (which will be the t=0 condition if this is the first run of this model,
         # else where the last sim left off)
 
-        init_cond = [self.numS[-1], self.numE[-1], self.numI[-1], self.numR[-1]]
+        init_cond = [self.numS[-1], self.numI[-1], self.numR[-1]]
 
         # -----------------------------------------------------------------------------------------------------------
         # Solve the system of differential eqns:
@@ -613,7 +613,7 @@ class SEIRmodel():
 
         Rseries     = self.numR/self.N if plot_percentages else self.numR
         Iseries     = self.numI/self.N if plot_percentages else self.numI
-        Eseries     = self.numE/self.N if plot_percentages else self.numE
+        Eseries     = self.numE/self.N if plot_percentages else self.numR
         Sseries     = self.numS/self.N if plot_percentages else self.numS
 
 
